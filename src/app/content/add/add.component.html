@@ -1,0 +1,9 @@
+<form action="">
+  <div class="form-group">
+    <input type="text" class="form-control" (keyup)="onKey()" placeholder="What do you want to do?" [(ngModel)]="Task.text" name="text">
+  </div>
+
+  <div class="form-group">
+      <button [ngClass]="{'btn': true, 'btn-primary': true, 'disabled': isButtonDisabled ? true : false}" class="btn btn-primary" (click)="addTask(Task)">Add</button>
+  </div>
+</form>

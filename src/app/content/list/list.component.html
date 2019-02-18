@@ -1,0 +1,12 @@
+<div class="col-sm-6 col-sm-offset-3">
+  <div class="checkbox" *ngFor="let task of Tasks">
+    <input type="checkbox" [(ngModel)]="task.isDone" (change)="updateStatus(task)">
+    <a class="p10" href="javascript:void(0)" (click)="deleteTask(task)"><i class="fas fa-minus"></i></a>
+    <a class="p10" href="" (click)="editTask(task)"><i class="fas fa-edit"></i></a>
+    <span [class]="task.isDone ? 'strike' : ''">{{ task.text }}</span>
+  </div>
+</div>
+
+<div class="col-sm-8 col-sm-offset-2">
+    <app-add (TasksEvent)="receiveTasks($event)"></app-add>
+</div>
