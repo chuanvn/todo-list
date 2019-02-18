@@ -8,8 +8,8 @@ export class TodoService {
   urlListTask: string;
   urlTask: string;
   constructor(public http: HttpClient) {
-    this.urlListTask = 'http://node-todos.herokuapp.com/api/todos';
-    this.urlTask = 'http://node-todos.herokuapp.com/api/todo';
+    this.urlListTask = 'https://node-todos.herokuapp.com/api/todos';
+    this.urlTask = 'https://node-todos.herokuapp.com/api/todo';
   }
 
   getList() {
