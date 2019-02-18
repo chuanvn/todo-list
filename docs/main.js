@@ -544,8 +544,8 @@ __webpack_require__.r(__webpack_exports__);
 var TodoService = /** @class */ (function () {
     function TodoService(http) {
         this.http = http;
-        this.urlListTask = 'http://node-todos.herokuapp.com/api/todos';
-        this.urlTask = 'http://node-todos.herokuapp.com/api/todo';
+        this.urlListTask = 'https://node-todos.herokuapp.com/api/todos';
+        this.urlTask = 'https://node-todos.herokuapp.com/api/todo';
     }
     TodoService.prototype.getList = function () {
         return this.http.get(this.urlListTask);
