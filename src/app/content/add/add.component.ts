@@ -25,11 +25,15 @@ export class AddComponent implements OnInit {
   }
 
   addTask() {
-    this.todo.add(this.Task).subscribe(res => {
-      this.clearTask();
-      this.TasksEvent.emit(res);
-      this.isButtonDisabled = true;
-    });
+    if (this.Task.text !== '') {
+      this.todo.add(this.Task).subscribe(res => {
+        this.clearTask();
+        this.TasksEvent.emit(res);
+        this.isButtonDisabled = true;
+      });
+    } else {
+      alert('This field is required!');
+    }
   }
 
   clearTask() {

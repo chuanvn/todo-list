@@ -188,7 +188,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbnRlbnQvYWRkL2FkZC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "button, input {\n  outline: none;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29udGVudC9hZGQvYWRkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9jb250ZW50L2FkZC9hZGQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJ1dHRvbiwgaW5wdXQge1xuICBvdXRsaW5lOiBub25lO1xufVxuIl19 */"
 
 /***/ }),
 
@@ -233,11 +233,16 @@ var AddComponent = /** @class */ (function () {
     };
     AddComponent.prototype.addTask = function () {
         var _this = this;
-        this.todo.add(this.Task).subscribe(function (res) {
-            _this.clearTask();
-            _this.TasksEvent.emit(res);
-            _this.isButtonDisabled = true;
-        });
+        if (this.Task.text !== '') {
+            this.todo.add(this.Task).subscribe(function (res) {
+                _this.clearTask();
+                _this.TasksEvent.emit(res);
+                _this.isButtonDisabled = true;
+            });
+        }
+        else {
+            alert('This field is required!');
+        }
     };
     AddComponent.prototype.clearTask = function () {
         this.Task = {
