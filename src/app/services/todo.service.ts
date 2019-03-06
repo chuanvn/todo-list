@@ -28,4 +28,9 @@ export class TodoService {
     const url = `${this.urlTask}/${data._id}`;
     return this.http.delete<Array<Todo>>(url);
   }
+
+  view(id: String) {
+    const url = `${this.urlTask}/${id}`;
+    return this.http.get<Todo>(url);
+  }
 }

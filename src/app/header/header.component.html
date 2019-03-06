@@ -1,6 +1,7 @@
-<div class="jumbotron text-center">
-  <h1>
-    Todo Dashboard
-    <span class="label label-info ng-binding">{{ numTask || 10}}</span>
-  </h1>
+<div class="container">
+  <button routerLink="/home" routerLinkActive="active" class="btn btn-default">Home</button>
+  <button routerLink="/about" routerLinkActive="active" class="btn btn-default">About</button>
+  <button routerLink="/todo" routerLinkActive="active" class="btn btn-default">Todo</button>
+  <a (click)="logout()" *ngIf="isLoggedIn">Logout</a>
 </div>
+

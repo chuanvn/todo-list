@@ -10,8 +10,7 @@ import { Todo } from 'src/app/models/todo';
 export class ListComponent implements OnInit {
   Tasks: Array<Todo>;
   Task: Todo;
-
-  @Output() numTask = new EventEmitter<Number>();
+  numTask: Number;
 
   constructor(private todo: TodoService) { }
 
@@ -22,6 +21,7 @@ export class ListComponent implements OnInit {
   getTasks() {
     this.todo.getList().subscribe(res => {
       this.Tasks = res;
+      this.numTask = this.Tasks.length;
     });
   }
 
@@ -34,17 +34,13 @@ export class ListComponent implements OnInit {
   deleteTask(Task: Todo) {
     this.todo.delete(Task).subscribe(res => {
       this.Tasks = res;
-      this.sendNumTask();
+      this.numTask = this.Tasks.length;
     });
   }
 
   receiveTasks($event) {
     this.Tasks = $event;
-    this.sendNumTask();
-  }
-
-  sendNumTask() {
-    this.numTask.emit(this.Tasks.length);
+    this.numTask = this.Tasks.length;
   }
 
 }

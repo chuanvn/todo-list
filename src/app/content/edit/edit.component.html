@@ -1,3 +1,9 @@
-<p>
-  edit works!
-</p>
+<form action="">
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="Task.text" name="text">
+  </div>
+
+  <div class="form-group">
+      <button [ngClass]="{'btn': true, 'btn-primary': true, 'disabled': isButtonDisabled ? true : false}" class="btn btn-primary" (click)="updateTask(Task)">Update</button>
+  </div>
+</form>
